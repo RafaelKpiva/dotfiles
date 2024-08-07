@@ -6,7 +6,7 @@ call plug#begin()
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
 " Track the engine.
@@ -29,6 +29,7 @@ filetype plugin indent on    " required
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
+set rtp+=~/.fzf
 
 set autoindent
 set nocompatible              " be iMproved, required
@@ -323,13 +324,6 @@ inoremap <C-j> <Esc>:m +1<CR>gi
 inoremap <C-k> <Esc>:m -2<CR>gi
 vnoremap <C-j> :m '>+1<CR>gvgv
 vnoremap <C-k> :m '<-2<CR>gvgv
-
-if has("mac") || has("macunix")
-  nmap <D-j> <M-j>
-  nmap <D-k> <M-k>
-  vmap <D-j> <M-j>
-  vmap <D-k> <M-k>
-endif
 
 " Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()
